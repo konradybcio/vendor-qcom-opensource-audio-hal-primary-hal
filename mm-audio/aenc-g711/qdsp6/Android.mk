@@ -60,7 +60,7 @@ ifeq ($(strip $(AUDIO_FEATURE_ENABLED_DLKM)),true)
 endif
 
 
-ifneq ($(filter kona lahaina holi,$(TARGET_BOARD_PLATFORM)),)
+ifneq ($(filter kona $(LAHAINA) holi,$(TARGET_BOARD_PLATFORM)),)
 LOCAL_SANITIZE := integer_overflow
 endif
 include $(BUILD_SHARED_LIBRARY)
@@ -86,7 +86,7 @@ LOCAL_SHARED_LIBRARIES  += libOmxG711Enc
 LOCAL_VENDOR_MODULE     := true
 LOCAL_SRC_FILES         := test/omx_g711_enc_test.c
 
-ifneq ($(filter kona lahaina holi,$(TARGET_BOARD_PLATFORM)),)
+ifneq ($(filter kona $(LAHAINA) holi,$(TARGET_BOARD_PLATFORM)),)
 LOCAL_SANITIZE := integer_overflow
 endif
 include $(BUILD_EXECUTABLE)
